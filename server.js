@@ -4,7 +4,7 @@ var cheerio = require('cheerio');
 var app = express();
 
 app.route('/api/:lang').get((req, res) => {
-  const requestedLang = req.params['lang'];
+	const requestedLang = req.params['lang'];
 
   switch(requestedLang) {
     case 'mx':
@@ -23,18 +23,55 @@ app.route('/api/:lang').get((req, res) => {
   request(url, function(err, resp, html){
     if(!err){
       var $ = cheerio.load(html);
-      const scope = {
-        title: ""
-      };
+      var scope = {
+				pagehead: "",
+				audience: [],
+				growing: [],
+				top: []
+			};
 
-      $('.global-and-local header h2').filter(function(){
+			$('.page-head h1').filter(function(){
         var data = $(this);
-        rating = data.text().trim();
-        scope.title = rating;
+				rating = data.text().trim();
+        scope.pagehead = rating;
       });
 
-      res.send(scope);
-    }
+			$(".top-fans-stats .item").each(function(i, item){
+				scope.audience.push({
+					title: $("h3 span", item).text().trim(),
+					totalfans: $("strong", item).text().trim(),
+					img: $(".top-fans-stats-img img").attr('src')
+				});
+			});
+
+			$('.graph-growing-list li').each(function(i, item){
+        scope.growing.push({
+					title: $("a h3", item).text().trim(),
+					growing: $("strong", item).text().trim(),
+					img: $("a .placeholder-img img").attr('src')
+				});
+			});
+
+			$('.graph-growing-list .block-1 li').each(function(i, item){
+        scope.growing.push({
+					//title: $("a h3", item).text().trim(),
+					//growing: $("strong", item).text().trim(),
+					//img: $("a img").attr('src')
+				});
+			});
+
+			$('.global-and-local .brand-table-placeholder table tr name').each(function(i, item){
+				console.log($(".item a").attr('title'));
+				console.log($(".item a .placeholder-img img").attr('src'));
+      });
+
+			res.send(scope);
+
+    }else{
+			res.send({
+				opps: 'algo salio mal'
+			});
+		}
   });
 });
 
