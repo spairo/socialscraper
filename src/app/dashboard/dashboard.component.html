@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+	<div class="row">
 		<div class="col-md-12">
 			<br />
 			<mat-card>
@@ -8,14 +8,12 @@
 				<br />
 				<h5>Selecciona un país</h5>
 				<mat-form-field>
-					<mat-select [(value)]="selected">
-						<mat-option>None</mat-option>
-						<mat-option value="mx">Mexico</mat-option>
-						<mat-option value="es">España</mat-option>
-						<mat-option value="us">USA</mat-option>
+					<mat-select (selectionChange)="gotoLang($event)">
+						<mat-option *ngFor="let state of states" [value]="state.link">
+							{{ state.label }}
+						</mat-option>
 					</mat-select>
 				</mat-form-field>
-				<p>You selected: {{selected}}</p>
 			</mat-card>
 		</div>
 	</div>

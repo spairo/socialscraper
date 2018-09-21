@@ -3,19 +3,8 @@
 		<div class="col-md-12">
 			<br />
 			<mat-card>
-				<h1>Social Media Statistics</h1>
+				<h1>{{socialdata.pagehead}}</h1>
 				<mat-divider></mat-divider>
-				<br />
-				<h5>Selecciona un país</h5>
-				<mat-form-field>
-					<mat-select [(value)]="selected">
-						<mat-option>None</mat-option>
-						<mat-option value="mx">Mexico</mat-option>
-						<mat-option value="es">España</mat-option>
-						<mat-option value="us">USA</mat-option>
-					</mat-select>
-				</mat-form-field>
-				<p>You selected: {{selected}}</p>
 			</mat-card>
 		</div>
 	</div>

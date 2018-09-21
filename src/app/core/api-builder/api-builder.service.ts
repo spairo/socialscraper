@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+//import { Observable, map, throwError } from 'rxjs';
+import { environment as env } from '@env/environment';
+
+
+//const proxy = 'https://cors-anywhere.herokuapp.com/';
 
 @Injectable()
 export class ApibuilderService {
@@ -10,31 +15,20 @@ export class ApibuilderService {
     private _http: HttpClient
   ) {}
 
-  Build(service : any) {
-
-		/*
-
-    if (env.production){
-      //service.url = env.hostname + '/' + env.platform + '/' + env.apiVersion + '/' + service.module;
-      service.url = env.hostname + env.dynPath + env.mock + env.platform + '/' + env.apiVersion + '/' + service.module + '.json';
-        return this.BuildRequest(service);
-    } else {
-      service.url = env.hostname + env.dynPath + env.mock + env.platform + '/' + env.apiVersion + '/' + service.module + '.json';
-      console.log("dispatcher: " + service.url);
-        return this.BuildRequest(service);
-		}
-		*/
-
+  Build(service: any) {
+    if (!env.production) {
+			service.url = env.hostname + service.module;
+      return this.BuildRequest(service);
+    }
   }
   BuildRequest(service) {
-    /*if (service.method.match(/^(get)$/)) {
-      //return this._http[service.method](service.url, { params: service.params }, this.config)
-      //.catch((e: any) => Observable.throw(this.ErrorHandler(e)));
+    if (service.method.match(/^(get)$/)) {
+			return this._http[service.method](service.url, { params: service.params }, this.config);
     } else {
-      //return this._http[service.method](service.url, service.params, this.config);
-    }*/
+      return this._http[service.method](service.url, service.params, this.config);
+    }
   }
-  ErrorHandler(error: any): void {
-    //let snackBarRef = this.snackBar.open('Error ' + error.status + ' -  ' + error.message, 'Cerrar');
+  errorHandler(error: any): void {
+    console.log(error);
   }
 }
