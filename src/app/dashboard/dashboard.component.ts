@@ -27,14 +27,15 @@ export class DashboardComponent implements OnInit {
 
 	gotoLang(prefix){
 		//TODO We need to refactor ASAP
+		debugger;
 		if(prefix.value === 'mx'){
-			window.location.hash = "http://localhost:4200/#/mx";
+			window.location.href = "http://localhost:4200/#/mexico";
 		}else if(prefix.value === 'es'){
-			window.location.hash = "http://localhost:4200/#/es";
+			window.location.href = "http://localhost:4200/#/spain";
 		}else if(prefix.value === 'us'){
-			window.location.hash = "http://localhost:4200/#/usa";
+			window.location.href = "http://localhost:4200/#/usa";
 		}else{
-			window.location.hash = "http://localhost:4200/#/";
+			window.location.href = "http://localhost:4200/#/";
 		}
 
 	}
