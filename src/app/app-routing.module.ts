@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from './dashboard/index';
+import { DashboardComponent, UsaComponent, MexicoComponent, SpainComponent } from './dashboard/index';
 
 const routes: Routes = [
 	{
@@ -17,6 +17,27 @@ const routes: Routes = [
     component: DashboardComponent,
     data: {
       title: 'Dashboard'
+    }
+	},
+	{
+    path: 'mexico',
+    component: MexicoComponent,
+    data: {
+      title: 'Mexico'
+    }
+	},
+	{
+    path: 'spain',
+    component: SpainComponent,
+    data: {
+      title: 'España'
+    }
+	},
+	{
+    path: 'usa',
+    component: UsaComponent,
+    data: {
+      title: 'USA'
     }
   },
   {

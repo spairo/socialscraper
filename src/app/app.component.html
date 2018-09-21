@@ -19,10 +19,10 @@
 
     <div class="toolbar">
       <mat-toolbar color="primary">
-        <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
+        <button mat-icon-button class="" (click)="sidenav.open()">
           <mat-icon>menu</mat-icon>
         </button>
-      </mat-toolbar>
+			</mat-toolbar>
     </div>
 
     <div class="content" [@routerTransition]="o.isActivated && o.activatedRoute.routeConfig.path">
@@ -37,7 +37,7 @@
           </a>
         </div>
       </div>
-    </div>
+		</div>
 
   </div>
 

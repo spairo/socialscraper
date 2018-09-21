@@ -14,7 +14,7 @@ export class AppComponent {
 	title = 'app';
 
 	navigation = [
-    { link: 'home', label: 'Home' },
+    { link: 'dashboard', label: 'Dashboard' },
     { link: 'mexico', label: 'Mexico'},
 		{ link: 'spain', label: 'España'},
 		{ link: 'usa', label: 'USA'}
