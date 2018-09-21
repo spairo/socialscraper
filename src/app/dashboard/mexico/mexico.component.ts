@@ -14,7 +14,7 @@ export class MexicoComponent implements OnInit {
 	animateOnRouteEnter = ANIMATE_ON_ROUTE_ENTER;
 
 	public socialdata: Observable<any[]>;
-
+	public metadata: any;
   constructor(
 		private _social: MexicoService
 	) { }
@@ -25,8 +25,8 @@ export class MexicoComponent implements OnInit {
       method : 'get',
       params: {}
     }).subscribe(socialdata => {
-			this.socialdata = socialdata;
-			console.log(this.socialdata);
+			this.metadata = socialdata;
+			console.log(this.metadata);
 		});
 	}
 

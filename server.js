@@ -48,7 +48,7 @@ app.route('/api/:lang').get((req, res) => {
         scope.growing.push({
 					title: $("a h3", item).text().trim(),
 					growing: $("strong", item).text().trim(),
-					//img: $("a .placeholder-img img").attr('src')
+					img: $("a .placeholder-img img").attr('src')
 				});
 			});
 

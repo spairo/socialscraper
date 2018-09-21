@@ -14,6 +14,7 @@ export class SpainComponent implements OnInit {
 	animateOnRouteEnter = ANIMATE_ON_ROUTE_ENTER;
 
 	public socialdata: Observable<any[]>;
+	public metadata: any;
 
   constructor(
 		private _social: SpainService
@@ -25,7 +26,7 @@ export class SpainComponent implements OnInit {
       method : 'get',
       params: {}
     }).subscribe(socialdata => {
-			this.socialdata = socialdata;
+			this.metadata = socialdata;
 		});
   }
 

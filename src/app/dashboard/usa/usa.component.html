@@ -3,8 +3,32 @@
 		<div class="col-md-12">
 			<br />
 			<mat-card>
-				<h1>{{socialdata.pagehead}}</h1>
+				<h1>{{metadata.pagehead}}</h1>
 				<mat-divider></mat-divider>
+				<br>
+				<h1>Largest Audience</h1>
+				<mat-list>
+					<mat-list-item *ngFor="let audiences of metadata.audience">
+						<img matListAvatar src="{{audiences.img}}" alt="{{audiences.title}}">
+						<h3 matLine> {{audiences.title}} </h3>
+						<p matLine>
+							<span> Total Fans </span>
+							<span class="demo-2"> {{audiences.totalfans}} </span>
+						</p>
+					</mat-list-item>
+				</mat-list>
+				<br>
+				<h1>Fastest-Growing Pages in Mexico</h1>
+				<mat-list>
+					<mat-list-item *ngFor="let audiences of metadata.growing">
+						<img matListAvatar src="{{audiences.img}}" alt="{{audiences.title}}">
+						<h3 matLine> {{audiences.title}} </h3>
+						<p matLine>
+							<span></span>
+							<span class="demo-2"> {{audiences.growing}} </span>
+						</p>
+					</mat-list-item>
+				</mat-list>
 			</mat-card>
 		</div>
 	</div>

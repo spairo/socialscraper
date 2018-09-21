@@ -1,20 +1,13 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<br />
-			<mat-card>
-				<h1>Social Media Statistics</h1>
-				<mat-divider></mat-divider>
-				<br />
-				<h5>Selecciona un país</h5>
-				<mat-form-field>
-					<mat-select (selectionChange)="gotoLang($event)">
-						<mat-option *ngFor="let state of states" [value]="state.link">
-							{{ state.label }}
-						</mat-option>
-					</mat-select>
-				</mat-form-field>
-			</mat-card>
-		</div>
-	</div>
-</div>
+<mat-card>
+	<h1>Social Media Statistics</h1>
+	<mat-divider></mat-divider>
+	<br />
+	<h5>Selecciona un país</h5>
+	<mat-form-field>
+		<mat-select (selectionChange)="gotoLang($event)">
+			<mat-option *ngFor="let state of states" [value]="state.link">
+				{{ state.label }}
+			</mat-option>
+		</mat-select>
+	</mat-form-field>
+</mat-card>

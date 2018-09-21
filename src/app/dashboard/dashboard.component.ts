@@ -26,16 +26,16 @@ export class DashboardComponent implements OnInit {
 	ngOnInit() {}
 
 	gotoLang(prefix){
-		/*
+		//TODO We need to refactor ASAP
 		if(prefix.value === 'mx'){
-			this.route.navigate(['/mx']);
+			window.location.hash = "http://localhost:4200/#/mx";
 		}else if(prefix.value === 'es'){
-			this.route.navigateByUrl('/es');
+			window.location.hash = "http://localhost:4200/#/es";
 		}else if(prefix.value === 'us'){
-			this.route.navigate(['/usa']);
+			window.location.hash = "http://localhost:4200/#/usa";
 		}else{
-			this.route.navigate(['/dashboard']);
+			window.location.hash = "http://localhost:4200/#/";
 		}
-		*/
+
 	}
 }
